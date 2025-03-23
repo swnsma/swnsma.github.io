@@ -28,8 +28,8 @@ async function initMap(locations) {
         return '<p>Категорія: ' + data['object_type'] + '</p>' +
         '<p>Бюджет: ' + data['amount_decision'] + ' грн</p>' +
         '<p>Використано*: ' + +data['amount'] + ' грн</p>' +
-        '<p>Відсоток освоєння: ' + (data['amount'] / data['amount_decision'] * 100).toFixed(2) + '%</p>' +
-            '* можливі неточності'
+        '<p>Освоєно бюджету: ' + (data['amount'] / data['amount_decision'] * 100).toFixed(2) + '%</p>' +
+            '<sub>* можливі неточності</sub>'
     }
 
     const markers = Object.keys(locations).map((key, index) => {
