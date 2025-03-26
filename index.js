@@ -10,14 +10,25 @@ async function initMap(locations) {
     });
 
     const colorMapping = {
-        'Інше': '#93938d',
         'Житло': '#a7e3fb',
         'Освіта': '#d0fba7',
         'Водогони': '#5198f9',
         'Медицина': '#f77070',
         'Адміністративні': '#f7cc70',
-        'Транспорт': '#f1f537'
+        'Транспорт': '#f1f537',
+        'Інше': '#93938d',
     }
+
+    const legend = document.getElementById("legend");
+
+    for (const key in colorMapping) {
+        const color = colorMapping[key];
+        const div = document.createElement("div");
+
+        div.innerHTML = '<div class="block" style="background-color: ' + color + '"><strong>' + key + '</strong>    </div>';
+        legend.appendChild(div);
+    }
+    map.controls[google.maps.ControlPosition.LEFT_TOP].push(legend);
 
     const infoWindow = new google.maps.InfoWindow({
         content: "",
